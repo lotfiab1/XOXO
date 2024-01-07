@@ -20,7 +20,9 @@ jobs:
         java-version: '11'
 
     - name: Build with Gradle
-      run: chmod +x ./gradlew || ./gradlew assembleDebug  # Use assembleRelease for release build
+      run: chmod +x ./gradlew 
+      run: ./gradlew assembleDebug  # Use assembleRelease for release build
 
     - name: Copy APK to Docs
-      run: mkdir /docs ||cp app/build/bin/signed.apk docs/
+      run: mkdir docs 
+      run: cp app/build/bin/signed.apk docs/
