@@ -1,0 +1,26 @@
+name: Tic-tac-toe
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Build with Gradle
+      run: chmod +x ./gradlew ||./gradlew assembleDebug  # Use assembleRelease for release build
+
+    - name: Copy APK to Docs
+      run: cp app/build/bin/apk/signed.apk docs/
