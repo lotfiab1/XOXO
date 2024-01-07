@@ -23,4 +23,4 @@ jobs:
       run: chmod +x ./gradlew || ./gradlew assembleDebug  # Use assembleRelease for release build
 
     - name: Copy APK to Docs
-      run: cp app/build/bin/signed.apk docs/
+      run: mkdir /docs ||cp app/build/bin/signed.apk docs/
