@@ -1,4 +1,4 @@
-name: Tic-Tac-Toe
+name: Android Build and Deploy
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         java-version: '11'
 
     - name: Build with Gradle
-      run: chmod +x ./gradlew ||./gradlew assembleDebug  # Use assembleRelease for release build
+      run: chmod +x ./gradlew || ./gradlew assembleRelease  # Use assembleRelease for release build
 
     - name: Copy APK to Docs
-      run: cp app/build/bin/apk/signed.apk docs/
+      run: mkdir docs || cp app/build/bin/signed.apk docs/
